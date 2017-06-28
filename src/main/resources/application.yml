@@ -1,10 +1,3 @@
-#server.port: 9966
-#spring.profiles: default
-
-#management.security.enabled: false
-
-#spring.jpa.hibernate.ddl-auto: validate
-
 spring:
   profiles:
     active: development
@@ -17,11 +10,6 @@ password: ""
 spring.jpa:
   database-platform: org.hibernate.dialect.H2Dialect
 
-#management.security.enabled: false
-
-#security:
-#  basic:
-#    enabled: false
 management:
   security:
     enabled: false
