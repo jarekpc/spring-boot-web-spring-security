@@ -29,9 +29,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${query.user}")
     private String usersQuery;
 
-    // roles admin allow to access /admin/**
-    // roles user allow to access /user/**
-    // custom 403 access denied handler
+    @Value("${query.role}")
+    private String rolesQuery;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -56,10 +56,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     // create two users, admin and user
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        System.out.println( " SQL " + usersQuery);
-        auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER")
-                .and()
-                .withUser("admin").password("password").roles("ADMIN");
+        auth
+                .jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery(usersQuery).authoritiesByUsernameQuery(rolesQuery);
     }
 }

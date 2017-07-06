@@ -16,7 +16,12 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="role_id")
     private int id;
+
     @Column(name="role")
     private String role;
 
+    /*
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> roles;
+    */
 }
