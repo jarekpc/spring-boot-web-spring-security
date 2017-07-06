@@ -1,1 +1,1 @@
-Testowy projekt spring security
+Testowy projekt spring security z uzyciem bazy h2
