@@ -1,30 +1,19 @@
-spring:
-    profiles:
-        active: dev
-    devtools:
-        restart:
-            enabled: true
+  spring:
+    profiles: dev
     datasource:
-        url: jdbc:h2:mem:test
-        driverClassName: org.h2.Driver
-        username: sa
-        password:
-    h2:
-        console:
-            enabled: true
+      driverClassName: org.h2.Driver
+      url: jdbc:h2:mem:test
+      username: sa
+      password:
     jpa:
-        database-platform: org.hibernate.dialect.H2Dialect
-        database: H2
-        show-sql: true
-    messages:
-        cache-seconds: 1
-    thymeleaf:
-        cache: false
+      hibernate.ddl-auto: validate
 
-security:
-    basic:
-        enabled: false
+  management:
+    security:
+      enabled: false
 
-query.user: select email, password, active from user where email=?
+  query.user: select email, password, active from user where email=?
 
-query.role: select u.email, r.role from user u inner join user_role ur on(u.user_id=ur.user_id) inner join role r on(ur.role_id=r.role_id) where u.email=?
+  query.role: select u.email, r.role from user u inner join user_role ur on(u.user_id=ur.user_id) inner join role r on(ur.role_id=r.role_id) where u.email=?
+
+  
