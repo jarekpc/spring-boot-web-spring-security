@@ -35,7 +35,13 @@ CREATE TABLE USER_ROLE(
 
 INSERT INTO USER(active,email,last_name,first_name,username,password) VALUES (1,'jarekpc@o2.pl','Zyzak','Jarek','jazy', 'poke123');
 
+
+INSERT INTO USER(active,email,last_name,first_name,username,password) VALUES (2,'pan@o2.pl','Kowalski','Jan','jan', 'janko');
+
 INSERT INTO ROLE(role)
 VALUES('ADMIN');
+INSERT INTO ROLE(role)
+VALUES('USER');
 
 INSERT INTO USER_ROLE(user_id, role_id) VALUES (1,1);
+INSERT INTO USER_ROLE(user_id, role_id) VALUES (2,2);
